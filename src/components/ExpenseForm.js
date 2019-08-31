@@ -77,7 +77,6 @@ class ExpenseForm extends React.Component {
                <input 
                   type='text'
                   placeholder='description'
-                  autoFocus
                   value={this.state.description}
                   onChange={this.onDescriptionChange}
                />

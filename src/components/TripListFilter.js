@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { setTextFilter, setStartDateFilter, setEndDateFilter, sortByName, sortByNewest, sortByOldest, sortByStartFirst, sortByStartLate } from '../actions/filters';
+import { setTextFilter, setStartDateFilter, setEndDateFilter, sortByName, sortByNewest, sortByOldest, sortByStartFirst, sortByStartLate } from '../actions/tripsFilters';
 import { DateRangePicker } from 'react-dates';
 
 class TripListFilter extends React.Component {
@@ -38,14 +38,15 @@ class TripListFilter extends React.Component {
    render () {
       return (
          <div>
+            <h3>Trip Filter</h3>
             <input 
                type='text'
                placeholder='Search by destination'
                onChange={this.onTextChange}
             />
             <DateRangePicker
-               startDate={this.props.filters.startDate}
-               endDate={this.props.filters.endDate}
+               startDate={this.props.tripsFilters.startDate}
+               endDate={this.props.tripsFilters.endDate}
                onDatesChange={this.onDatesChange}
                focusedInput={this.state.focusedInput}
                onFocusChange={this.onFocusChange}
@@ -55,7 +56,7 @@ class TripListFilter extends React.Component {
                showClearDates={true}
             />
             <select
-               value={this.props.filters.sortBy}
+               value={this.props.tripsFilters.sortBy}
                onChange={this.onSortChange}
             >
                <option value='name'>name</option>
@@ -71,7 +72,7 @@ class TripListFilter extends React.Component {
 };
 
 const mapStateToProps = (state) => ({
-   filters: state.filters
+   tripsFilters: state.tripsFilters
 });
 
 const mapDispatchToProps = (dispatch) => ({

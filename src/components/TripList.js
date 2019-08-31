@@ -5,6 +5,7 @@ import selectTrips from '../selectors/trips';
 
 const TripList = (props) => (
    <div>
+      <h3>Trip List</h3>
       {  
          props.trips.length === 0 ? (
             <span>No Trips</span>
@@ -18,7 +19,7 @@ const TripList = (props) => (
 );
 
 const mapStateToProps = (state) => ({
-   trips: selectTrips(state.trips, state.filters)
+   trips: selectTrips(state.trips, state.tripsFilters)
 });
 
 export default connect(mapStateToProps)(TripList);

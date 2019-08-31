@@ -1,9 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Expense from './Expense';
+import ExpenseSummary from './ExpenseSummary';
+import selectExpenses from '../selectors/expenses';
 
 const ExpenseList = (props) => (
    <div>
+      <ExpenseSummary expenses={props.expenses}/>
       {
          props.expenses.length === 0 ? (
             <span>No Expenses</span>
@@ -17,7 +20,7 @@ const ExpenseList = (props) => (
 );
 
 const mapStateToProps = (state, ownProps) => ({
-   expenses: state.expenses.filter(expense => ownProps.trip.expenses.includes(expense.id)),
+   expenses: selectExpenses(state.expenses, state.expensesFilters, ownProps.trip),
    trip: ownProps.trip
 });
 

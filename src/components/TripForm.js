@@ -58,7 +58,6 @@ class TripForm extends React.Component {
             <input 
                type='text'
                value={this.state.destination}
-               autoFocus
                placeholder='destination'
                onChange={this.onTextChange} 
             />
