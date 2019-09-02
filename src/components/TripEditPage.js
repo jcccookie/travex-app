@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import TripForm from './TripForm';
 import { startEditTrip, startRemoveTrip } from '../actions/trips';
-import { removeExpense } from '../actions/expenses';
+import { startRemoveExpense } from '../actions/expenses';
 import ExpenseList from './ExpenseList';
 import ExpenseListFilter from './ExpensesListFilters';
 import { Link } from 'react-router-dom';
@@ -17,7 +17,7 @@ class TripEditPage extends React.Component {
       // remove expenses that match to trip 
       this.props.expenses.forEach(expense => {
          if (this.props.trip.expenses.includes(expense.id)) {
-            this.props.removeExpense(expense.id);
+            this.props.startRemoveExpense(expense.id);
          };
       }); 
       // remove trip
@@ -52,7 +52,7 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = (dispatch) => ({
    startEditTrip: (id, trip) => dispatch(startEditTrip(id, trip)),
    startRemoveTrip: (id) => dispatch(startRemoveTrip(id)),
-   removeExpense: (id) => dispatch(removeExpense(id))
+   startRemoveExpense: (id) => dispatch(startRemoveExpense(id))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TripEditPage);
