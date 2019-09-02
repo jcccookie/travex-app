@@ -1,16 +1,17 @@
 import React from 'react';
 import moment from 'moment';
 import uuid from 'uuid';
-import { SingleDatePicker } from 'react-dates';
+import { DateRangePicker } from 'react-dates';
 
 class ExpenseForm extends React.Component {
    state = {
       description: this.props.expense ? this.props.expense.description : '',
       amount: this.props.expense ? this.props.expense.amount : '',
-      date: this.props.expense ? moment(this.props.expense.date) : null,
+      startDate: this.props.expense ? moment(this.props.expense.startDate) : null,
+      endDate: this.props.expense ? moment(this.props.expense.endDate) : null,
       paidMethod: this.props.expense ? this.props.expense.paidMethod : 'credit',
       note: this.props.expense ? this.props.expense.note : '',
-      focused: null,
+      focusedInput: null,
       error: ''
    };
 
@@ -38,18 +39,18 @@ class ExpenseForm extends React.Component {
       this.setState(() => ({ note }));
    };
 
-   onDateChange = (date) => {
-      this.setState({ date });
+   onDatesChange = ({ startDate, endDate }) => {
+      this.setState({ startDate, endDate });
    };
 
-   onFocusChange = ({ focused }) => {
-      this.setState({ focused });
+   onFocusChange = (focusedInput) => {
+      this.setState({ focusedInput });
    };
 
    onSubmit = (e) => {
       e.preventDefault();
 
-      if (!this.state.description || !this.state.amount || !this.state.date) {
+      if (!this.state.description || !this.state.amount || !this.state.startDate || !this.state.endDate) {
          this.setState(() => ({
             error: 'Please fill up the all forms'
          }));
@@ -60,7 +61,8 @@ class ExpenseForm extends React.Component {
          const expense = {
             description: this.state.description,
             amount: this.state.amount,
-            date: this.state.date.valueOf(),
+            startDate: this.state.startDate.valueOf(),
+            endDate: this.state.endDate.valueOf(),
             paidMethod: this.state.paidMethod,
             note: this.state.note
          };
@@ -80,14 +82,16 @@ class ExpenseForm extends React.Component {
                   value={this.state.description}
                   onChange={this.onDescriptionChange}
                />
-               <SingleDatePicker
-                  date={this.state.date}
-                  onDateChange={this.onDateChange}
-                  focused={this.state.focused}
+               <DateRangePicker
+                  startDate={this.state.startDate}
+                  endDate={this.state.endDate} 
+                  onDatesChange={this.onDatesChange}
+                  focusedInput={this.state.focusedInput} 
                   onFocusChange={this.onFocusChange}
-                  showClearDate={true}
+                  showClearDates={true}
                   numberOfMonths={1}
                   isOutsideRange={() => false}
+                  minimumNights={0}
                />
                <input 
                   type='text'

@@ -5,8 +5,8 @@ export default (expenses, { description, startDate, endDate, paidMethod, note, s
       const isInTrip = trip.expenses.includes(expense.id);
 
       const isInDescNote = expense.description.toLowerCase().includes(description.toLowerCase()) || expense.note.toLowerCase().includes(note.toLowerCase());
-      const isStartDate = startDate ? moment(expense.date).isSameOrAfter(moment(startDate), 'day') : true;
-      const isEndDate = endDate ? moment(expense.date).isSameOrBefore(moment(endDate), 'day') : true;
+      const isStartDate = startDate ? moment(expense.startDate).isSameOrAfter(moment(startDate), 'day') : true;
+      const isEndDate = endDate ? moment(expense.endDate).isSameOrBefore(moment(endDate), 'day') : true;
 
       return isInTrip && isInDescNote && isStartDate && isEndDate;
    }).filter(expense => {
@@ -21,9 +21,9 @@ export default (expenses, { description, startDate, endDate, paidMethod, note, s
       } else if (sortBy === 'lowest') {
          return a.amount - b.amount;
       } else if (sortBy === 'newest') {
-         return  b.date - a.date;
+         return  b.startDate - a.startDate;
       } else if (sortBy === 'oldest') {
-         return a.date - b.date;
+         return a.startDate - b.startDate;
       } else if (sortBy === 'name') {
          const aDesc = a.description.toLowerCase();
          const bDesc = b.description.toLowerCase();
