@@ -1,13 +1,13 @@
 import React from 'react';
+import moment from 'moment';
 import uuid from 'uuid';
 import { SingleDatePicker } from 'react-dates';
 
 class ExpenseForm extends React.Component {
    state = {
-      id: this.props.expense ? this.props.expense.id : uuid(),
       description: this.props.expense ? this.props.expense.description : '',
       amount: this.props.expense ? this.props.expense.amount : '',
-      date: this.props.expense ? this.props.expense.date : null,
+      date: this.props.expense ? moment(this.props.expense.date) : null,
       paidMethod: this.props.expense ? this.props.expense.paidMethod : 'credit',
       note: this.props.expense ? this.props.expense.note : '',
       focused: null,
@@ -56,16 +56,16 @@ class ExpenseForm extends React.Component {
       } else {
          this.setState(() => ({ error: '' }));
 
+         const id = uuid();
          const expense = {
-            id: this.state.id,
             description: this.state.description,
             amount: this.state.amount,
-            date: this.state.date,
+            date: this.state.date.valueOf(),
             paidMethod: this.state.paidMethod,
             note: this.state.note
          };
    
-         this.props.onSubmit(expense);
+         this.props.onSubmit(expense, id);
       }
    };
 

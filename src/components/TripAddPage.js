@@ -1,15 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addTrip } from '../actions/trips';
+import { startAddTrip } from '../actions/trips';
 import TripForm from './TripForm';
 
 class TripAddPage extends React.Component {
    onSubmit = (trip) => {
-      this.props.addTrip(trip);
+      this.props.startAddTrip(trip);
       this.props.history.push('/dashboard');
    };
 
-   render() {
+   render () {
       return (
          <div>
             <TripForm 
@@ -21,7 +21,7 @@ class TripAddPage extends React.Component {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-   addTrip: (trip) => dispatch(addTrip(trip))
+   startAddTrip: (trip) => dispatch(startAddTrip(trip))
 });
 
 export default connect(undefined, mapDispatchToProps)(TripAddPage);

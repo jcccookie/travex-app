@@ -1,13 +1,15 @@
 import React from 'react';
 import ExpenseForm from './ExpenseForm';
 import { connect } from 'react-redux';
-import { addExpense } from '../actions/expenses';
-import { addExpenseToTrip } from '../actions/trips';
+import { startAddExpense } from '../actions/expenses';
+import { startAddExpenseToTrip } from '../actions/trips';
 
 class ExpenseAddPage extends React.Component {
-   onSubmit = (expense) => {
-      this.props.addExpense(expense);
-      this.props.addExpenseToTrip(this.props.match.params.id, expense.id);
+
+   onSubmit = (expense, expId) => {
+      this.props.startAddExpense(expId, expense);
+      this.props.startAddExpenseToTrip(this.props.match.params.tripId, expId);
+      
       this.props.history.goBack();
    };
 
@@ -23,8 +25,8 @@ class ExpenseAddPage extends React.Component {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-   addExpense: (expense) => dispatch(addExpense(expense)),
-   addExpenseToTrip: (tripId, expId) => dispatch(addExpenseToTrip(tripId, expId))
+   startAddExpense: (expId, expense) => dispatch(startAddExpense(expId, expense)),
+   startAddExpenseToTrip: (tripId, expId) => dispatch(startAddExpenseToTrip(tripId, expId))
 });
 
 export default connect(undefined, mapDispatchToProps)(ExpenseAddPage);

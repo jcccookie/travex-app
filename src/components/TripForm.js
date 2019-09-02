@@ -1,15 +1,13 @@
 import React from 'react';
 import { DateRangePicker } from 'react-dates';
 import moment from 'moment';
-import uuid from 'uuid';
 
 class TripForm extends React.Component {
    state = {
-      id: this.props.trip ? this.props.trip.id : uuid(),
       destination: this.props.trip ? this.props.trip.destination : '',
-      startDate: this.props.trip ? this.props.trip.startDate : null,
-      endDate: this.props.trip ? this.props.trip.endDate : null,
-      createdAt: this.props.trip ? this.props.trip.createdAt : moment(),
+      startDate: this.props.trip ? moment(this.props.trip.startDate) : null,
+      endDate: this.props.trip ? moment(this.props.trip.endDate) : null,
+      createdAt: this.props.trip ? moment(this.props.trip.createdAt) : moment(),
       focusedInput: null,
       expenses: this.props.trip ? this.props.trip.expenses : [],
       error: ''
@@ -40,11 +38,10 @@ class TripForm extends React.Component {
             error: ''
          }));
          const trip = {
-            id: this.state.id,
             destination: this.state.destination,
-            startDate: this.state.startDate,
-            endDate: this.state.endDate,
-            createdAt: this.state.createdAt,
+            startDate: this.state.startDate.valueOf(),
+            endDate: this.state.endDate.valueOf(),
+            createdAt: this.state.createdAt.valueOf(),
             expenses: this.state.expenses
          };
          this.props.onSubmit(trip);
