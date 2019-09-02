@@ -49,6 +49,8 @@ export default (state = tripsReducerDefaultState, action) => {
                return trip;
             };
          });
+      case 'SET_TRIP':
+         return action.trips;
       default:
          return state;
    };

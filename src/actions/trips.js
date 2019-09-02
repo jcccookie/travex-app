@@ -65,7 +65,7 @@ export const startAddExpenseToTrip = (tripId, expId) => {
    return (dispatch, getState) => {
       const uid = getState().auth.uid;
 
-      return database.ref(`users/${uid}/trips/${tripId}`).child(`expenses/${expId}`).push(true).then(() => {
+      return database.ref(`users/${uid}/trips/${tripId}`).child(`expenses/${expId}`).push(expId).then(() => {
          dispatch(addExpenseToTrip(tripId, expId));
       });
    };
@@ -84,6 +84,43 @@ export const startRemoveExpenseFromTrip = (tripId, expId) => {
 
       return database.ref(`users/${uid}/trips/${tripId}/expenses/${expId}`).remove().then(() => {
          dispatch(removeExpenseFromTrip(tripId, expId));
+      });
+   };
+};
+
+//Retrieve Trips from database
+export const setTrip = (trips) => ({
+   type: 'SET_TRIP',
+   trips
+})
+
+export const startSetTrip = () => {
+   return (dispatch, getState) => {
+      const uid = getState().auth.uid;
+
+      return database.ref(`/users/${uid}/trips`).once('value').then(dataSnapshot => {
+         const trips = [];
+         const expenses = []; //Container to store expenses in array form
+         
+         //Convert the expenses from database in object form into array form; Need to do this to loop through the expenses easily
+         dataSnapshot.forEach(childSnapshot => {
+            childSnapshot.child('expenses').forEach(expense => {
+               expenses.push(expense.key)
+            })
+         });
+
+         dataSnapshot.forEach(childSnapshot => {
+            trips.push({
+               id: childSnapshot.key,
+               destination: childSnapshot.child('destination').val(),
+               createdAt: childSnapshot.child('createdAt').val(),
+               startDate: childSnapshot.child('startDate').val(),
+               endDate: childSnapshot.child('endDate').val(),
+               expenses: expenses
+            });
+         });
+
+         dispatch(setTrip(trips));
       });
    };
 };

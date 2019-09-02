@@ -51,3 +51,28 @@ export const startRemoveExpense = (id) => {
       });
    };
 };
+
+//Retrieve Expenses from database
+export const setExpense = (expenses) => ({
+   type: 'SET_EXPENSE',
+   expenses
+});
+
+export const startSetExpense = () => {
+   return (dispatch, getState) => {
+      const uid = getState().auth.uid;
+
+      return database.ref(`/users/${uid}/expenses`).once('value').then(dataSnapshot => {
+         const expenses = [];
+
+         dataSnapshot.forEach(childSnapshot => {
+            expenses.push({
+               id: childSnapshot.key,
+               ...childSnapshot.val()
+            });
+         });
+
+         dispatch(setExpense(expenses));
+      });
+   };
+};
