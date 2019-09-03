@@ -2,19 +2,25 @@ import React from 'react';
 import Trip from './Trip';
 import { connect } from 'react-redux';
 import selectTrips from '../selectors/trips';
+import { Link } from 'react-router-dom';
 
 const TripList = (props) => (
-   <div>
-      <h3>Trip List</h3>
-      {  
-         props.trips.length === 0 ? (
-            <span>No Trips</span>
-         ) : (
-            props.trips.map(trip => {
-               return <Trip key={trip.id} {...trip}/>
-            })
-         )
-      }
+   <div className='content-container'>
+      <div className='list'>
+         <h3 className='list-header'>Trip List</h3>
+         <Link className='button button--add' to='/create'>Add Trip</Link>
+      </div>
+      <div className='card-list'>
+         {  
+            props.trips.length === 0 ? (
+               <span>No Trips</span>
+            ) : (
+               props.trips.map(trip => {
+                  return <Trip key={trip.id} {...trip}/>
+               })
+            )
+         }
+      </div>
    </div>
 );
 

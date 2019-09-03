@@ -21,9 +21,9 @@ export default (trips, { text, startDate, endDate, sortBy }) => {
          return a.startDate - b.startDate;
       } else if (sortBy === 'startLate') {
          return b.startDate - a.startDate;
-      } else if (sortBy === 'newest') {
-         return a.createdAt - b.createdAt;
       } else if (sortBy === 'oldest') {
+         return a.createdAt - b.createdAt;
+      } else if (sortBy === 'newest') {
          return b.createdAt - a.createdAt;
       };
    });

@@ -9,12 +9,17 @@ class TripAddPage extends React.Component {
       this.props.history.push('/dashboard');
    };
 
+   onCancel = () => {
+      this.props.history.goBack();
+   };
+
    render () {
       return (
          <div>
             <TripForm 
                onSubmit={this.onSubmit}
             />
+            <button onClick={this.onCancel}>Cancel</button>
          </div>
       );
    };

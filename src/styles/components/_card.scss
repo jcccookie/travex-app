@@ -1,0 +1,54 @@
+.card-list {
+   display: grid;
+   grid-gap: 2rem;
+   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+   grid-template-rows: 1fr;
+   margin-top: 1.7rem;
+}
+
+.card {
+   display: grid;
+   cursor: pointer;
+   transition: all 0.3s ease;
+   text-align: center;
+   background: #fff;
+   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+   text-decoration: none;
+   
+
+   &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      background: $header-blue;
+
+      h3 {
+         color: $light-white;
+      }
+
+      p {
+         color: $light-white;
+      }
+   };
+
+   &:visited {
+      color: $dark-grey;
+   }
+
+   &__body {
+      padding: 20px;
+   }
+      
+   &__title {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1;
+      padding: 0;
+      text-transform: uppercase;
+      color: $dark-grey;
+   }
+
+   &__intro {
+      margin-bottom: 0;
+      color: $dark-grey;
+   }
+}

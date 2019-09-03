@@ -37,35 +37,45 @@ class TripListFilter extends React.Component {
 
    render () {
       return (
-         <div>
-            <h3>Trip Filter</h3>
-            <input 
-               type='text'
-               placeholder='Search by destination'
-               onChange={this.onTextChange}
-            />
-            <DateRangePicker
-               startDate={this.props.tripsFilters.startDate}
-               endDate={this.props.tripsFilters.endDate}
-               onDatesChange={this.onDatesChange}
-               focusedInput={this.state.focusedInput}
-               onFocusChange={this.onFocusChange}
-               numberOfMonths={1}
-               minimumNights={0}
-               isOutsideRange={() => false}
-               showClearDates={true}
-            />
-            <select
-               value={this.props.tripsFilters.sortBy}
-               onChange={this.onSortChange}
-            >
-               <option value='name'>name</option>
-               {/* <option>amount</option> */}
-               <option value='startFirst'>start first</option>
-               <option value='startLate'>start late</option>
-               <option value='newest'>newest created</option>
-               <option value='oldest'>oldest created</option>
-            </select>
+         <div className='content-container'>
+            <h3 className='list-header'>Trip Filter</h3>
+            <div className='input-group'>
+               <div className='input-group__item'>
+                  <input 
+                     className='text-input'
+                     type='text'
+                     placeholder='Search by destination'
+                     onChange={this.onTextChange}
+                  />
+               </div>
+               <div className='input-group__item'>
+                  <DateRangePicker
+                     startDate={this.props.tripsFilters.startDate}
+                     endDate={this.props.tripsFilters.endDate}
+                     onDatesChange={this.onDatesChange}
+                     focusedInput={this.state.focusedInput}
+                     onFocusChange={this.onFocusChange}
+                     numberOfMonths={1}
+                     minimumNights={0}
+                     isOutsideRange={() => false}
+                     showClearDates={true}
+                  />
+               </div>
+               <div className='input-group__item'>
+                  <select
+                     className='select'
+                     value={this.props.tripsFilters.sortBy}
+                     onChange={this.onSortChange}
+                  >
+                     <option value='name'>name</option>
+                     {/* <option>amount</option> */}
+                     <option value='startFirst'>start first</option>
+                     <option value='startLate'>start late</option>
+                     <option value='newest'>newest created</option>
+                     <option value='oldest'>oldest created</option>
+                  </select>
+               </div>
+            </div>
          </div>
       );
    };

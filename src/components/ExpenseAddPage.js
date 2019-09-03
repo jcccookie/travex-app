@@ -13,12 +13,17 @@ class ExpenseAddPage extends React.Component {
       this.props.history.goBack();
    };
 
+   onCancel = () => {
+      this.props.history.goBack();
+   };
+
    render () {
       return (
          <div>
             <ExpenseForm 
                onSubmit={this.onSubmit}
             />
+            <button onClick={this.onCancel}>Cancel</button>
          </div>
       );
    };

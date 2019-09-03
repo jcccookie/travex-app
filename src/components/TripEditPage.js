@@ -10,7 +10,6 @@ import { Link } from 'react-router-dom';
 class TripEditPage extends React.Component {
    onSubmit = (trip) => {
       this.props.startEditTrip(this.props.trip.id, trip);
-      this.props.history.push('/dashboard');
    };
 
    onRemove = () => {
@@ -25,6 +24,10 @@ class TripEditPage extends React.Component {
       this.props.history.push('/dashboard');
    };
 
+   onCancel = () => {
+      this.props.history.goBack();
+   };
+
    render () {
       return (
          <div>
@@ -36,6 +39,9 @@ class TripEditPage extends React.Component {
             <button
                onClick={this.onRemove}
             >Remove Trip</button>
+            <button
+               onClick={this.onCancel}
+            >Back</button>
             <ExpenseListFilter />
             <Link to={`/add/expense/${this.props.match.params.id}`}>Add Expense</Link>
             <ExpenseList trip={this.props.trip}/>

@@ -1,5 +1,5 @@
 .button {
-   background-color: $light-blue;
+   background-color: $header-blue;
    border: none;
    color: white;
    display: inline-block;
@@ -9,6 +9,7 @@
    line-height: 1;
    border-radius: 0.2rem;
    text-decoration: none;
+   
 }
 
 .button--link {
@@ -17,4 +18,14 @@
 
 .button--secondary {
    background-color: #888888;
+}
+
+.button--add {
+   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+   transition: all 0.3s ease;
+
+   &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+   };
 }

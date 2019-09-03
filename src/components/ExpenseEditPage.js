@@ -8,7 +8,6 @@ class ExpenseEditPage extends React.Component {
 
    onSubmit = (expense) => {
       this.props.startEditExpense(this.props.expense.id, expense);
-
       this.props.history.goBack();
    };
 
@@ -21,6 +20,10 @@ class ExpenseEditPage extends React.Component {
       this.props.history.goBack();
    };
 
+   onCancel = () => {
+      this.props.history.goBack();
+   };
+
    render () {
       return (
          <div>
@@ -29,6 +32,7 @@ class ExpenseEditPage extends React.Component {
                onSubmit={this.onSubmit}
             />
             <button onClick={this.onRemove}>Remove Expense</button>
+            <button onClick={this.onCancel}>Cancel</button> 
          </div>
       );
    };

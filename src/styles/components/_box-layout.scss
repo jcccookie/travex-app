@@ -1,5 +1,5 @@
 .box-layout {
-   background: url('/images/bg.jpg');
+   background: url('/images/airplane.jpg');
    background-size: cover;
    display: flex;
    justify-content: center;
@@ -10,9 +10,9 @@
 
 .box-layout__box {
    background: fade-out(white, .15);
-   border-radius: 3px;
+   border-radius: 10px;
    text-align: center;
-   width: 25rem;
+   width: 35rem;
    padding: $l-size $m-size;
 }
 
