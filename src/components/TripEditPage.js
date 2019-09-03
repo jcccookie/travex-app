@@ -30,7 +30,7 @@ class TripEditPage extends React.Component {
 
    render () {
       return (
-         <div>
+         <div className='content-container'>
             <h3>Your Trip</h3>
             <TripForm 
                trip={this.props.trip}
