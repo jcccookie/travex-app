@@ -114,7 +114,7 @@ export const startSetTrip = () => {
                createdAt: childSnapshot.child('createdAt').val(),
                startDate: childSnapshot.child('startDate').val(),
                endDate: childSnapshot.child('endDate').val(),
-               expenses: childSnapshot.hasChild('expenses') ? expenses : [] // To prevent from copying the expenses to all trips
+               expenses: expenses // To prevent from copying the expenses to all trips
             });
          });
 
