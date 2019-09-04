@@ -50,27 +50,38 @@ class TripForm extends React.Component {
 
    render () {
       return (
-         <form onSubmit={this.onSubmit}>
-            <div>{this.state.error && <span>{this.state.error}</span>}</div>
-            <input 
-               type='text'
-               value={this.state.destination}
-               placeholder='destination'
-               onChange={this.onTextChange} 
-            />
-            <DateRangePicker
-               startDate={this.state.startDate}
-               endDate={this.state.endDate} 
-               onDatesChange={this.onDatesChange}
-               focusedInput={this.state.focusedInput} 
-               onFocusChange={this.onFocusChange}
-               showClearDates={true}
-               numberOfMonths={1}
-               isOutsideRange={() => false}
-               minimumNights={0}
-            />
-            <button>Save Trip</button>
-         </form>
+         <div className='content-container'>
+            <h3 className='list-header'>Your Trip</h3>
+               <form onSubmit={this.onSubmit}>
+                  <div>{this.state.error && <span className='form__error'>{this.state.error}</span>}</div>
+                  <div className='input-group'>
+                     <div className='input-group__item'>
+                        <input 
+                           className='text-input'
+                           type='text'
+                           value={this.state.destination}
+                           placeholder='destination'
+                           onChange={this.onTextChange} 
+                        />
+                     </div>
+                     <div className='input-group__item'>
+                        <DateRangePicker
+                           startDate={this.state.startDate}
+                           endDate={this.state.endDate} 
+                           onDatesChange={this.onDatesChange}
+                           focusedInput={this.state.focusedInput} 
+                           onFocusChange={this.onFocusChange}
+                           showClearDates={true}
+                           numberOfMonths={1}
+                           isOutsideRange={() => false}
+                           minimumNights={0}
+                        />
+                     </div>
+                     <button className='button button--save'>Save Trip</button>
+                  </div>
+               </form>
+         </div>
+         
       )
    }
 };

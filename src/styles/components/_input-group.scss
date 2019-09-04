@@ -1,19 +1,31 @@
 .input-group {
    display: flex;
    flex-direction: column;
-   margin-bottom: $m-size;
+   margin-bottom: $s-size;
    justify-content: space-between;
 
    @media (min-width: $desktop-breakpoint) {
       flex-direction: row;
       margin-bottom: $l-size;
+
+      &__expense {
+         justify-content: flex-start;
+      }
    }
 }
 
 .input-group__item {
    margin-bottom: $s-size;
 
+   &__sort {
+         margin-bottom: $s-size;
+      }
+
    @media (min-width: $desktop-breakpoint) {
       margin: 0 $s-size 0 0;
+
+      &__sort {
+         margin-right: 0;
+      }
    }
 }

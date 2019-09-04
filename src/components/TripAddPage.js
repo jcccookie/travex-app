@@ -19,7 +19,9 @@ class TripAddPage extends React.Component {
             <TripForm 
                onSubmit={this.onSubmit}
             />
-            <button onClick={this.onCancel}>Cancel</button>
+            <div className='content-container button-list'>
+               <button className='button button--cancel' onClick={this.onCancel}>Cancel</button>
+            </div>
          </div>
       );
    };

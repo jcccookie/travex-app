@@ -73,47 +73,65 @@ class ExpenseForm extends React.Component {
 
    render () {
       return (
-         <div>
-            {this.state.error && <span>{this.state.error}</span>}
+         <div className='content-container'>
+            <h3 className='list-header'>Your Expense</h3>
+            {this.state.error && <span className='form__error'>{this.state.error}</span>}
             <form onSubmit={this.onSubmit}>
-               <input 
-                  type='text'
-                  placeholder='description'
-                  value={this.state.description}
-                  onChange={this.onDescriptionChange}
-               />
-               <DateRangePicker
-                  startDate={this.state.startDate}
-                  endDate={this.state.endDate} 
-                  onDatesChange={this.onDatesChange}
-                  focusedInput={this.state.focusedInput} 
-                  onFocusChange={this.onFocusChange}
-                  showClearDates={true}
-                  numberOfMonths={1}
-                  isOutsideRange={() => false}
-                  minimumNights={0}
-               />
-               <input 
-                  type='text'
-                  placeholder='amount'
-                  value={this.state.amount}
-                  onChange={this.onAmountChange}
-               />
-               <select
-                  value={this.state.paidMethod}
-                  onChange={this.onMethodChange}
-               >
-                  <option value='credit'>credit</option>
-                  <option value='debit'>debit</option>
-                  <option value='cash'>cash</option>
-               </select>
-               
-               <textarea 
-                  value={this.state.note}
-                  onChange={this.onNoteChange}
-                  placeholder='add note'
-               />
-               <button>Save Expense</button>
+               <div className='input-group input-group__expense'>
+                  <div className='input-group__item'>
+                     <input 
+                        className='text-input'
+                        type='text'
+                        placeholder='description'
+                        value={this.state.description}
+                        onChange={this.onDescriptionChange}
+                     />
+                  </div>
+                  <div className='input-group__item'>
+                     <DateRangePicker
+                        startDate={this.state.startDate}
+                        endDate={this.state.endDate} 
+                        onDatesChange={this.onDatesChange}
+                        focusedInput={this.state.focusedInput} 
+                        onFocusChange={this.onFocusChange}
+                        showClearDates={true}
+                        numberOfMonths={1}
+                        isOutsideRange={() => false}
+                        minimumNights={0}
+                     />
+                  </div>
+               </div>
+               <div className='input-group input-group__expense'>
+                  <div className='input-group__item'>
+                     <input 
+                        className='text-input'
+                        type='text'
+                        placeholder='amount'
+                        value={this.state.amount}
+                        onChange={this.onAmountChange}
+                     />
+                  </div>
+                  <div className='input-group__item'>
+                     <select
+                        className='select'
+                        value={this.state.paidMethod}
+                        onChange={this.onMethodChange}
+                     >
+                        <option value='credit'>credit</option>
+                        <option value='debit'>debit</option>
+                        <option value='cash'>cash</option>
+                     </select>
+                  </div>
+                  <div className='input-group__item'>
+                     <textarea 
+                        className='textarea'
+                        value={this.state.note}
+                        onChange={this.onNoteChange}
+                        placeholder='add note'
+                     />
+                  </div>
+               </div>
+               <button className='button button--save--expense'>Save Expense</button>
             </form>
          </div>
       );

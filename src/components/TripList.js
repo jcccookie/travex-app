@@ -10,17 +10,19 @@ const TripList = (props) => (
          <h3 className='list-header'>Trip List</h3>
          <Link className='button button--add' to='/create'>Add Trip</Link>
       </div>
-      <div className='card-list'>
          {  
             props.trips.length === 0 ? (
-               <span>No Trips</span>
+               <div className='list-message'>
+                  <span className='list-message--body show-for-desktop'>Add Your Trip!</span>
+               </div>
             ) : (
-               props.trips.map(trip => {
-                  return <Trip key={trip.id} {...trip}/>
-               })
+               <div className='card-list'>
+                  {props.trips.map(trip => {
+                     return <Trip key={trip.id} {...trip}/>
+                  })}
+               </div>
             )
          }
-      </div>
    </div>
 );
 

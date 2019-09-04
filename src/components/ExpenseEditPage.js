@@ -31,8 +31,10 @@ class ExpenseEditPage extends React.Component {
                expense={this.props.expense}
                onSubmit={this.onSubmit}
             />
-            <button onClick={this.onRemove}>Remove Expense</button>
-            <button onClick={this.onCancel}>Cancel</button> 
+            <div className='content-container'>
+               <button className='button button--remove' onClick={this.onRemove}>Remove</button>
+               <button className='button button--cancel' onClick={this.onCancel}>Cancel</button> 
+            </div>
          </div>
       );
    };

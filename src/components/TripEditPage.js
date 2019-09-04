@@ -5,7 +5,6 @@ import { startEditTrip, startRemoveTrip } from '../actions/trips';
 import { startRemoveExpense } from '../actions/expenses';
 import ExpenseList from './ExpenseList';
 import ExpenseListFilter from './ExpensesListFilters';
-import { Link } from 'react-router-dom';
 
 class TripEditPage extends React.Component {
    onSubmit = (trip) => {
@@ -30,21 +29,19 @@ class TripEditPage extends React.Component {
 
    render () {
       return (
-         <div className='content-container'>
-            <h3>Your Trip</h3>
+         <div>
             <TripForm 
                trip={this.props.trip}
                onSubmit={this.onSubmit}
             />
-            <button
-               onClick={this.onRemove}
-            >Remove Trip</button>
-            <button
-               onClick={this.onCancel}
-            >Back</button>
+            <div className='content-container'>
+               <div className='button-list'>
+                  <button className='button button--remove' onClick={this.onRemove}>Remove</button>
+                  <button className='button button--back' onClick={this.onCancel}>Back</button>
+               </div>
+            </div>
             <ExpenseListFilter />
-            <Link to={`/add/expense/${this.props.match.params.id}`}>Add Expense</Link>
-            <ExpenseList trip={this.props.trip}/>
+            <ExpenseList trip={this.props.trip} id={this.props.match.params.id}/>
          </div>
       );
    };

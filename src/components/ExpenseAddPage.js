@@ -23,7 +23,9 @@ class ExpenseAddPage extends React.Component {
             <ExpenseForm 
                onSubmit={this.onSubmit}
             />
-            <button onClick={this.onCancel}>Cancel</button>
+            <div className='content-container'>
+               <button className='button button--cancel' onClick={this.onCancel}>Cancel</button>
+            </div>
          </div>
       );
    };

@@ -3,9 +3,30 @@
    flex-direction: row;
    justify-content: space-between;
    align-items: center;
+
+   @media (max-width: $desktop-breakpoint) {
+      flex-direction: column;
+   }
 }
 
 .list-header {
    color: $font-blue;
    font-size: $l-size;
+}
+
+.list-content {
+   font-size: 2.5rem;
+   color: $dark-grey;
+}
+
+.list-message {
+   display: flex;
+   justify-content: center;
+}
+
+.list-message--body {
+   color: $font-blue;
+   font-size: $l-size;
+   text-align: center;
+   font-style: italic;
 }

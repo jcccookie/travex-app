@@ -42,37 +42,48 @@ class ExpensesListFilter extends React.Component {
 
    render () {
       return (
-         <div>
-            <h3>Expense Filter</h3>
-            <input 
-               type='text'
-               placeholder='description & note'
-               onChange={this.onDescriptionChange}
-            />
-            <DateRangePicker
-               startDate={this.props.expensesFilters.startDate}
-               endDate={this.props.expensesFilters.endDate}
-               onDatesChange={this.onDatesChange}
-               focusedInput={this.state.focusedInput}
-               onFocusChange={this.onFocusChange}
-               numberOfMonths={1}
-               minimumNights={0}
-               isOutsideRange={() => false}
-               showClearDates={true}
-            />
-            <select value={this.props.expensesFilters.paidMethod} onChange={this.onMethodChange}>
-               <option value='all'>all</option>
-               <option value='credit'>credit</option>
-               <option value='debit'>debit</option>
-               <option value='cash'>cash</option>
-            </select>
-            <select value={this.props.expensesFilters.sortBy} onChange={this.onSortChange}>
-               <option value='name'>name</option>
-               <option value='highest'>high amount</option>
-               <option value='lowest'>low amount</option>
-               <option value='newest'>newest date</option>
-               <option value='oldest'>oldest date</option>
-            </select>
+         <div className='content-container'>
+            <h3 className='list-header'>Expense Filter</h3>
+            <div className='input-group'>
+               <div className='input-group__item'>
+                  <input 
+                     className='text-input'
+                     type='text'
+                     placeholder='description & note'
+                     onChange={this.onDescriptionChange}
+                  />
+               </div>
+               <div className='input-group__item'>
+                  <DateRangePicker
+                     startDate={this.props.expensesFilters.startDate}
+                     endDate={this.props.expensesFilters.endDate}
+                     onDatesChange={this.onDatesChange}
+                     focusedInput={this.state.focusedInput}
+                     onFocusChange={this.onFocusChange}
+                     numberOfMonths={1}
+                     minimumNights={0}
+                     isOutsideRange={() => false}
+                     showClearDates={true}
+                  />
+               </div>
+               <div className='input-group__item__sort'>
+                  <select className='select' value={this.props.expensesFilters.paidMethod} onChange={this.onMethodChange}>
+                     <option value='all'>all</option>
+                     <option value='credit'>credit</option>
+                     <option value='debit'>debit</option>
+                     <option value='cash'>cash</option>
+                  </select>
+               </div>
+               <div className='input-group__item__sort'>
+                  <select className='select' value={this.props.expensesFilters.sortBy} onChange={this.onSortChange}>
+                     <option value='name'>name</option>
+                     <option value='highest'>high $</option>
+                     <option value='lowest'>low $</option>
+                     <option value='newest'>newest</option>
+                     <option value='oldest'>oldest</option>
+                  </select>
+               </div>
+            </div>
          </div>
       );
    };
