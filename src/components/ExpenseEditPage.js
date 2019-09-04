@@ -3,8 +3,12 @@ import ExpenseForm from './ExpenseForm';
 import { startEditExpense, startRemoveExpense } from '../actions/expenses';
 import { startRemoveExpenseFromTrip } from '../actions/trips';
 import { connect } from 'react-redux';
+import RemoveModal from './RemoveModal'
 
 class ExpenseEditPage extends React.Component {
+   state = {
+      isRemoveClicked: false
+   };
 
    onSubmit = (expense) => {
       this.props.startEditExpense(this.props.expense.id, expense);
@@ -12,6 +16,10 @@ class ExpenseEditPage extends React.Component {
    };
 
    onRemove = () => {
+      this.setState(() => ({ isRemoveClicked: true }));
+   };
+
+   onRemoveOnModal = () => {
       const expId = this.props.expense.id;
       const tripId = this.props.match.params.tripId
       this.props.startRemoveExpense(expId);
@@ -22,6 +30,10 @@ class ExpenseEditPage extends React.Component {
 
    onCancel = () => {
       this.props.history.goBack();
+   };
+
+   onClearModal = () => {
+      this.setState(() => ({ isRemoveClicked: false }))
    };
 
    render () {
@@ -37,6 +49,11 @@ class ExpenseEditPage extends React.Component {
                   <button className='button button--cancel' onClick={this.onCancel}>Cancel</button> 
                </div>
             </div>
+            <RemoveModal 
+               isRemoveClicked={this.state.isRemoveClicked}
+               onRemoveOnModal={this.onRemoveOnModal} 
+               onClearModal={this.onClearModal}
+            />
          </div>
       );
    };
