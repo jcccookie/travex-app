@@ -21,7 +21,7 @@ const Expense = ({ id, description, amount, startDate, endDate, paidMethod, note
          <p className='card__intro'>
             {
                note !== '' ? (
-                  `note: ${note}`
+                  `${note}`
                ) : (
                   ''
                )

@@ -13,7 +13,7 @@ const TripList = (props) => (
          {  
             props.trips.length === 0 ? (
                <div className='list-message'>
-                  <span className='list-message--body show-for-desktop'>Add Your Trip!</span>
+                  <span className='list-message--body show-for-desktop'>Add your Trip!</span>
                </div>
             ) : (
                <div className='card-list'>
