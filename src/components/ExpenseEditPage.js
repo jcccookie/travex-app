@@ -32,8 +32,10 @@ class ExpenseEditPage extends React.Component {
                onSubmit={this.onSubmit}
             />
             <div className='content-container'>
-               <button className='button button--remove' onClick={this.onRemove}>Remove</button>
-               <button className='button button--cancel' onClick={this.onCancel}>Cancel</button> 
+               <div className='button-list button-list__edit'>
+                  <button className='button button--remove' onClick={this.onRemove}>Remove</button>
+                  <button className='button button--cancel' onClick={this.onCancel}>Cancel</button> 
+               </div>
             </div>
          </div>
       );
