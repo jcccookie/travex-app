@@ -20,12 +20,6 @@ export { firebase, googleAuthProvider, database as default };
 
 
 
-
-
-
-
-
-
 // REFERENCE for Firebase
 // ---------------------------------------
 

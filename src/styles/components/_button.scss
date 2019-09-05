@@ -47,6 +47,14 @@
          margin: 0 $s-size 0 0;
       }
    }
+
+   &--login {
+      margin-top: 1rem;
+
+      &-guest {
+         background-color: $orange;
+      }
+   }
 }
 
 .button--link {
@@ -92,4 +100,12 @@
       margin: 2rem 0 0 0;
    }
    
+}
+
+.button-list--login {
+   height: 70px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
 }

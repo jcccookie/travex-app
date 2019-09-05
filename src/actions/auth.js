@@ -9,7 +9,13 @@ export const login = (uid) => ({
 
 export const startLogin = () => {
    return () => {
-      return firebase.auth().signInWithPopup(googleAuthProvider)
+      return firebase.auth().signInWithPopup(googleAuthProvider);
+   };
+};
+
+export const startGuest = () => {
+   return () => {
+      return firebase.auth().signInAnonymously();
    };
 };
 
