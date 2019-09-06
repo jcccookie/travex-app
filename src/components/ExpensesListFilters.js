@@ -5,7 +5,7 @@ import { DateRangePicker } from 'react-dates';
 
 class ExpensesListFilter extends React.Component {
    state = {
-      focusedInput: null
+      focusedInput: null,
    };
 
    onDescriptionChange = (e) => {
