@@ -8,5 +8,5 @@ Worked to teach myself fullstack development by creating this web application. U
 
 This project is deployed by Heroku and you can check the live website from [here](https://travex-app.herokuapp.com).
 
-![mobile1](public/images/SC1.png =100x20) 
-![mobile2](public/images/Sc2.png =100x20)
+<img src="/public/images/SC1.png" alt="sc1" title="mobile1" width="50" height="100" />
+<img src="/public/images/Sc2.png" alt="sc2" title="mobile2" width="50" height="100" />
