@@ -104,6 +104,7 @@ export const startSetTrip = () => {
          dataSnapshot.forEach(childSnapshot => {
             //Convert the expenses from database in object form into array form; Need to do this to loop through the expenses easily
             const expenses = [];
+            // To prevent from copying the expenses to all trips
             childSnapshot.child('expenses').forEach(expense => {
                expenses.push(expense.key)
             })
@@ -114,7 +115,7 @@ export const startSetTrip = () => {
                createdAt: childSnapshot.child('createdAt').val(),
                startDate: childSnapshot.child('startDate').val(),
                endDate: childSnapshot.child('endDate').val(),
-               expenses: expenses // To prevent from copying the expenses to all trips
+               expenses: expenses 
             });
          });
 
