@@ -1,6 +1,6 @@
 # Travex App
 
-Simple and easy travel expenses managing app. This app provides you with the features that allows you to easily manage your travel expenses. Add a location and expenses along with description, date, price, and note. 
+Simple and easy travel expenses managing app. This app provides you with the features that allows you to easily manage your travel expenses. Add a location and expenses along with description, date, price, and note. You can search your trips or expenses with the filter input. 
 
 ## Overview
 
