@@ -9,4 +9,6 @@ Worked to teach myself fullstack development by creating this web application. U
 This project is deployed by [Heroku](https://heroku.com) and you can check the [live website](https://travex-app.herokuapp.com)(👈🏽click).
 Try out guest mode or store your data with your google account. Google authentication service powered by firebase makes everything easy when signing up.
 
+Both Web and mobile version are provided.
+
 <img src="/public/images/SC1.png" alt="sc1" title="mobile1" width="300" height="550" />     <img src="/public/images/Sc2.png" alt="sc2" title="mobile2" width="300" height="550" />
