@@ -4,7 +4,7 @@ Simple and easy travel expenses managing app. This app provides you with the fea
 
 ## Overview
 
-Worked to teach myself fullstack development by creating this web application. Used [React](https://reactjs.org/) for client side, [Redux](https://redux.js.org/basics/usage-with-react) to store the global states, and [Node.js](https://nodejs.org/en/) and [Firebase](https://firebase.google.com/) real time database for data persistence. 
+Worked to teach myself fullstack development by creating this web application. Used [React](https://reactjs.org/) for client side, [Redux](https://redux.js.org/basics/usage-with-react) to manage state globally, and [Node.js](https://nodejs.org/en/) and [Firebase](https://firebase.google.com/) real time database for data persistence. 
 
 This project is deployed by [Heroku](https://heroku.com) and you can check the [live website](https://travex-app.herokuapp.com)(👈🏽click).
 Try out guest mode or store your data with your google account. Google authentication service powered by firebase makes everything easy when signing up.
